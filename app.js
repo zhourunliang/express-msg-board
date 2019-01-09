@@ -30,6 +30,9 @@ registerRoutes(app, routeIndex.routes)
 const routeMsg = require('./route/msg')
 registerRoutes(app, routeMsg.routes)
 
+// 导入 route/user 的所有路由数据
+const routeUser = require('./route/user')
+registerRoutes(app, routeUser.routes)
 
 // listen 函数的第一个参数是我们要监听的端口
 // 这个端口是要浏览器输入的

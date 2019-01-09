@@ -6,7 +6,7 @@
     <title>留言板</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="#" />
-
+    
     <link rel="stylesheet" type="text/css" href="/css/bootstrap/3.3.6/bootstrap.min.css">
 
     <script type="text/javascript" src="/js/jquery/2.0.0/jquery.min.js"></script>
@@ -18,7 +18,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="#">留言板</a>
+                <a class="navbar-brand" href="/">留言板</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/user/register"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
@@ -32,53 +32,40 @@
             <div class="row" >
                 <div class="col-md-8 col-md-offset-1">
 
+                    <h1 class="text-center">注册</h1>
+
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
-                            <label for="id-input-title" class="col-sm-2 control-label">标题</label>
+                            <label for="id-input-name" class="col-sm-2 control-label">姓名</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="id-input-title" placeholder="请输入标题">
+                                <input type="text" class="form-control" id="id-input-name" placeholder="请输入姓名">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="id-input-author" class="col-sm-2 control-label">作者</label>
+                            <label for="id-input-password" class="col-sm-2 control-label">密码</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="id-input-author" placeholder="请输入作者">
+                                <input type="password" class="form-control" id="id-input-password" placeholder="请输入密码">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="id-input-content" class="col-sm-2 control-label">内容</label>
+                            <label for="id-input-repassword" class="col-sm-2 control-label">密码确认</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="id-input-content" rows="3" placeholder="请输入内容"></textarea>
+                                <input type="password" class="form-control" id="id-input-repassword" placeholder="请输入密码">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default" id='id-button-submit'>发表</button>
+                                <button type="button" class="btn btn-default" id='id-button-submit'>注册</button>
                             </div>
                         </div>
                     </form>
-
+                        <div id="id-div-alert"></div>
                 </div>
             </div>
 
-            <div class="row" >
-                <div class="col-md-8 col-md-offset-1" id="id-div-msg-list">
-
-                    <!-- <div class="panel panel-default">
-                        <div class="panel-heading">
-                            测试标题
-                        </div>
-                        <div class="panel-body">
-                            测试内容
-                            <p class="text-right"><span>作者</span>@<time>2019-01-08</time></p>
-                        </div>
-                    </div> -->
-
-                </div>
-            </div>
 
         </div>
-        <script src="/js/main.js"></script> 
+        <script src="/js/register.js"></script> 
 </body>
 </html>
