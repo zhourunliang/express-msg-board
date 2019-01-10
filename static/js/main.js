@@ -89,6 +89,7 @@ var msgNew = function(form) {
         callback: function(response) {
             // console.log('响应', response)
             var res = JSON.parse(response)
+            self.location.href="/"
         }
     }
     ajax(request)
@@ -106,7 +107,7 @@ var bindEvents = function() {
         // 得到用户填写的数据
         var form = {
             title: e('#id-input-title').value,
-            author: e('#id-input-author').value,
+            author: '',
             content: e('#id-input-content').value,
         }
         // 用这个数据调用 msgNew 来创建一篇新留言

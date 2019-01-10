@@ -14,8 +14,10 @@ var index = {
     path: '/',
     method: 'get',
     func: function(request, response) {
-        var path = 'msg_index.html'
-        sendHtml(path, response)
+
+        response.render('msg_index',{username : request.session.username})
+        // var path = 'msg_index.html'
+        // sendHtml(path, response)
     }
 }
 

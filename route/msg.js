@@ -17,6 +17,7 @@ var add = {
         // 浏览器发过来的数据我们一般称之为 form (表单)
         var form = request.body
         // console.log('add', form)
+        form.author = request.session.username
         // 插入新数据并返回
         var b = msg.new(form)
         var r = JSON.stringify(b)

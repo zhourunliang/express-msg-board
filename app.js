@@ -1,12 +1,27 @@
 // 引入 express 并且创建一个 express 实例赋值给 app
 var express = require('express')
 var app = express()
+var session = require('express-session');
 var bodyParser = require('body-parser')
 
-app.use(bodyParser.json())
+// 下面三行设置渲染的引擎模板
+app.set('views', __dirname +'/template'); //设置模板的目录
+app.set('view engine', 'html'); // 设置解析模板文件类型：这里为html文件
+app.engine('html', require('ejs').__express); // 使用ejs引擎解析html文件中ejs语法
 
+app.use(bodyParser.json())
 // 配置静态文件目录
 app.use(express.static('static'))
+
+// 使用 session 中间件
+app.use(session({
+    secret :  'secret', // 对session id 相关的cookie 进行签名
+    resave : true,
+    saveUninitialized: false, // 是否保存未初始化的会话
+    cookie : {
+        maxAge : 1000 * 60 * 3, // 设置 session 的有效时间，单位毫秒
+    },
+}));
 
 
 const registerRoutes = function(app, routes) {

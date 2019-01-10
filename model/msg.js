@@ -8,7 +8,7 @@ var msgFilePath = 'db/msg.json'
 const ModelMsg = function(form) {
     // a = b || c 意思是如果 b 是 undefined 或者 null 就把 c 赋值给 a
     this.title = form.title || ''
-    this.author = form.author || ''
+    this.author = form.author || '匿名'
     this.content = form.content || ''
     // 生成一个 unix 时间
     this.created_time = Math.floor(new Date() / 1000)
@@ -61,9 +61,9 @@ b.save = function() {
     var s = JSON.stringify(this.data)
     fs.writeFile(msgFilePath, s, (err) => {
       if (err) {
-          console.log(err)
+        //   console.log(err)
       } else {
-          console.log('保存成功')
+        //   console.log('保存成功')
       }
     })
 }

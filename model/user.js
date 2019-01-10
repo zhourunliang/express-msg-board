@@ -72,6 +72,17 @@ b.save = function() {
     })
 }
 
+b.login = function(form) {
+
+    //检查姓名是否重复
+    var check= this.data.filter((item)=>item.name == form.name && item.password == form.password)
+    // console.log('check', check)
+    if (check.length == 0) {
+        return false
+    }
+    return true
+}
+
 // 导出一个对象的时候用 module.exports = 对象 的方式
 // 这样引用的时候就可以直接把模块当这个对象来用了(具体看使用方法)
 module.exports = b
