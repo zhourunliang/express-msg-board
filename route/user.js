@@ -1,24 +1,10 @@
 const user = require('../model/user')
 
-var sendHtml = function(path, response) {
-    var fs = require('fs')
-    var options = {
-        encoding: 'utf-8'
-    }
-    path = 'template/' + path
-    fs.readFile(path, options, function(err, data){
-        // console.log(`读取的html文件 ${path} 内容是`, data)
-        response.send(data)
-    })
-}
-
 var login = {
     path: '/user/login',
     method: 'get',
     func: function(request, response) {
         response.render('user_login')
-        // var path = 'user_login.html'
-        // sendHtml(path, response)
     }
 }
 
@@ -63,8 +49,7 @@ var register = {
     path: '/user/register',
     method: 'get',
     func: function(request, response) {
-        var path = 'user_register.html'
-        sendHtml(path, response)
+        response.render('user_register')
     }
 }
 

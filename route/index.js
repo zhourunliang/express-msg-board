@@ -1,23 +1,8 @@
-var sendHtml = function(path, response) {
-    var fs = require('fs')
-    var options = {
-        encoding: 'utf-8'
-    }
-    path = 'template/' + path
-    fs.readFile(path, options, function(err, data){
-        // console.log(`读取的html文件 ${path} 内容是`, data)
-        response.send(data)
-    })
-}
-
 var index = {
     path: '/',
     method: 'get',
     func: function(request, response) {
-
         response.render('msg_index',{username : request.session.username})
-        // var path = 'msg_index.html'
-        // sendHtml(path, response)
     }
 }
 
