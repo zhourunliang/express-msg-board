@@ -57,6 +57,21 @@ b.new = function(form) {
     return m
 }
 
+b.del = function(form) {
+    var msg_id = form.msg_id||0
+    if (msg_id == 0) {
+        return false
+    }
+    var new_data = this.data.filter((item)=>item.id != msg_id)
+    // console.log('new_data', new_data)
+    this.data = new_data
+    // 把 最新数据 保存到文件中
+    this.save()
+    // 返回新建的数据
+    return msg_id
+}
+
+
 b.save = function() {
     var s = JSON.stringify(this.data)
     fs.writeFile(msgFilePath, s, (err) => {

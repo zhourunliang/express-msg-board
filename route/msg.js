@@ -26,9 +26,25 @@ var add = {
     }
 }
 
+var del = {
+    path: '/api/msg/del',
+    method: 'post',
+    func: function(request, response) {
+        // 浏览器发过来的数据我们一般称之为 form (表单)
+        var form = request.body
+        // console.log('del', form)
+
+        var b = msg.del(form)
+        var r = JSON.stringify(b)
+
+        response.send(r)
+    }
+}
+
 var routes = [
     all,
     add,
+    del,
 ]
 
 module.exports.routes = routes

@@ -13,7 +13,7 @@ var msgTemplate = function(msg) {
         </div>
         <div class="panel-body">
             ${content}
-            <p class="text-right"><span>${author}</span>@<time>${time}</time></p>
+            <p class="text-right"><span>${author}</span>@<time>${time}</time><button type="button" class="btn btn-link button-del" data-msg-id="${id}">删除</button></p>
         </div>
     </div>
     `
@@ -43,6 +43,10 @@ var msgAll = function() {
             var msgs = JSON.parse(response)
             window.msgs = msgs
             insertMsgAll(msgs)
+            // var del_btns = document.querySelectorAll('.button-del')
+            // console.log('del_btns', del_btns)
+
+            delEvent()
         }
     }
     ajax(request)
@@ -69,11 +73,30 @@ var msgNew = function(form) {
     ajax(request)
 }
 
+var msgDel = function(msg_id) {
+    var form = {
+        msg_id: msg_id,
+    }
+    var data = JSON.stringify(form)
+    var request = {
+        method: 'POST',
+        url: '/api/msg/del',
+        data: data,
+        contentType: 'application/json',
+        callback: function(response) {
+            // console.log('响应', response)
+            var res = JSON.parse(response)
+            self.location.href="/"
+        }
+    }
+    ajax(request)
+}
+
 
 var bindEvents = function() {
     // 绑定发表新留言事件
-    var button = e('#id-button-submit')
-    button.addEventListener('click', function(event){
+    var submit = e('#id-button-submit')
+    submit.addEventListener('click', function(event){
         // console.log('click new')
         // 得到用户填写的数据
         var form = {
@@ -85,6 +108,25 @@ var bindEvents = function() {
         msgNew(form)
     })
 }
+
+var delEvent = function name(params) {
+    //删除留言
+    var del_btns = document.querySelectorAll('.button-del')
+    // console.log('del_btns', del_btns)
+    for (let i = 0; i < del_btns.length; i++) {
+        del_btns[i].addEventListener('click', function(event){
+         
+            // console.log('click del')
+            var el = event.target
+            var msg_id = el.getAttribute("data-msg-id")
+            // console.log("msg_id", msg_id)
+            msgDel(msg_id)
+
+        })
+    }
+}
+
+
 
 var __main = function() {
     // 载入留言列表
