@@ -2,6 +2,7 @@
 
 + node.js的express框架
 + 注册登陆功能
++ 删除留功能（admin权限）
 + json文件作为数据库
 + ajax提交
 

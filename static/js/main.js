@@ -5,6 +5,12 @@ var msgTemplate = function(msg) {
     var content = msg.content
     var d = new Date(msg.created_time * 1000)
     var time = d.toLocaleString()
+
+    var del_btn = ''
+    if (username == 'admin') {
+        del_btn = `<button type="button" class="btn btn-link button-del" data-msg-id="${id}">删除</button>`        
+    }
+
     var t = `
 
     <div class="panel panel-default">
@@ -13,7 +19,7 @@ var msgTemplate = function(msg) {
         </div>
         <div class="panel-body">
             ${content}
-            <p class="text-right"><span>${author}</span>@<time>${time}</time><button type="button" class="btn btn-link button-del" data-msg-id="${id}">删除</button></p>
+            <p class="text-right"><span>${author}</span>@<time>${time}</time>${del_btn}</p>
         </div>
     </div>
     `
