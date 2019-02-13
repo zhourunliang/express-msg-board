@@ -1,3 +1,8 @@
+// 定义 log 函数
+var log = function() {
+    console.log.apply(console, arguments)
+}
+
 var ajax = function(request) {
     /*
     request 是一个 object, 有如下属性

@@ -7,7 +7,7 @@ var register = function(form) {
         data: data,
         contentType: 'application/json',
         callback: function(response) {
-            // console.log('响应', response)
+            // log('响应', response)
             var res = JSON.parse(response)
             if (res.status) {
                 showAlert(res.msg)
@@ -24,7 +24,7 @@ var bindEvents = function() {
     // 绑定发表新留言事件
     var button = e('#id-button-submit')
     button.addEventListener('click', function(event){
-        // console.log('click new')
+        // log('click new')
         // 得到用户填写的数据
         var form = {
             name: e('#id-input-name').value,

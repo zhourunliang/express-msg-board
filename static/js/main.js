@@ -45,12 +45,12 @@ var msgAll = function() {
         contentType: 'application/json',
         callback: function(response) {
             // 不考虑错误情况(断网/服务器返回错误等等)
-            // console.log('响应', response)
+            // log('响应', response)
             var msgs = JSON.parse(response)
             window.msgs = msgs
             insertMsgAll(msgs)
             // var del_btns = document.querySelectorAll('.button-del')
-            // console.log('del_btns', del_btns)
+            // log('del_btns', del_btns)
 
             delEvent()
         }
@@ -71,7 +71,7 @@ var msgNew = function(form) {
         data: data,
         contentType: 'application/json',
         callback: function(response) {
-            // console.log('响应', response)
+            // log('响应', response)
             var res = JSON.parse(response)
             self.location.href="/"
         }
@@ -90,7 +90,7 @@ var msgDel = function(msg_id) {
         data: data,
         contentType: 'application/json',
         callback: function(response) {
-            // console.log('响应', response)
+            // log('响应', response)
             var res = JSON.parse(response)
             self.location.href="/"
         }
@@ -103,7 +103,7 @@ var bindEvents = function() {
     // 绑定发表新留言事件
     var submit = e('#id-button-submit')
     submit.addEventListener('click', function(event){
-        // console.log('click new')
+        // log('click new')
         // 得到用户填写的数据
         var form = {
             title: e('#id-input-title').value,
@@ -118,14 +118,14 @@ var bindEvents = function() {
 var delEvent = function name(params) {
     //删除留言
     var del_btns = document.querySelectorAll('.button-del')
-    // console.log('del_btns', del_btns)
+    // log('del_btns', del_btns)
     for (let i = 0; i < del_btns.length; i++) {
         del_btns[i].addEventListener('click', function(event){
          
-            // console.log('click del')
+            // log('click del')
             var el = event.target
             var msg_id = el.getAttribute("data-msg-id")
-            // console.log("msg_id", msg_id)
+            // log("msg_id", msg_id)
             msgDel(msg_id)
 
         })
