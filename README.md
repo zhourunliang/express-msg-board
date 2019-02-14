@@ -29,3 +29,5 @@ npm install ejs --save
 node app.js
 ```
 + 用浏览器访问http://127.0.0.1:8081
+### 截图
+![示例](https://github.com/zhourunliang/express-msg-board/blob/master/images/demo.png)
